@@ -52,10 +52,13 @@ build_image() {
         echo "==> image automl-pilot-${fw} exists; skipping build"
         return 0
     fi
+    local python_tag="3.10-bookworm"
+    [[ "$fw" == "autosklearn" ]] && python_tag="3.9-bookworm"
     docker build \
         --network=host \
         -f docker/Dockerfile.pilot \
         --build-arg "FRAMEWORK=${fw}" \
+        --build-arg "PYTHON_TAG=${python_tag}" \
         --build-arg "HTTPS_PROXY=${HTTPS_PROXY:-}" \
         --build-arg "NO_PROXY=${NO_PROXY:-localhost,127.0.0.1}" \
         -t "automl-pilot-${fw}" .

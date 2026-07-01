@@ -9,7 +9,10 @@
 # - the resource tier is injected at `docker run` time (-e TIER -e TIME_BUDGET
 #   --memory --cpus), so one image per framework serves all three tiers.
 
-FROM python:3.10-bookworm
+# auto-sklearn needs Python 3.9: its scikit-learn<0.25 pin ships no cp310
+# wheels and the sdist no longer compiles with modern Cython.
+ARG PYTHON_TAG=3.10-bookworm
+FROM python:${PYTHON_TAG}
 
 ARG FRAMEWORK=flaml
 

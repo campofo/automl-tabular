@@ -1,4 +1,7 @@
-# auto-sklearn is Linux-only (use Docker or WSL2 elsewhere). It requires an
-# older scikit-learn than the base pin; installing this file will downgrade
-# scikit-learn inside the auto-sklearn image, which is expected.
+# auto-sklearn is Linux-only (use Docker or WSL2 elsewhere) and needs
+# Python <=3.9 for prebuilt wheels of its scikit-learn<0.25 pin. Installing
+# this file downgrades scikit-learn/numpy below the base pins, which is
+# expected - keep auto-sklearn in its own environment/image.
 auto-sklearn==0.15.0
+# numpy 1.24 removed the deprecated aliases this old stack still uses
+numpy<1.24
