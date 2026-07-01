@@ -85,6 +85,13 @@ PYEOF
 
     for tier in "${TIERS[@]}"; do
         for ds in "${DATASETS[@]}"; do
+            # resume support: never repeat a cell that already has a row
+            # (re-runs after fixes: delete the stale row, or run the cell
+            # manually and let scripts/dedupe_logs.py keep the newest)
+            if grep -q "^${fw},${ds},${tier}," results/logs.csv 2>/dev/null; then
+                echo "==> skip ${fw}/${ds}/${tier}: already logged"
+                continue
+            fi
             echo "==> [$(date +%H:%M:%S)] ${fw} / ${ds} / ${tier} (${TIER_BUDGET[$tier]}s, ${TIER_CPUS[$tier]}cpu, ${TIER_MEM[$tier]})"
             rows_before=$(wc -l < results/logs.csv 2>/dev/null || echo 0)
             docker run --rm \
