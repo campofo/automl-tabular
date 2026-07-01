@@ -1,0 +1,25 @@
+# Data cache (datasets are fetched programmatically)
+data/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Framework artefacts
+AutogluonModels/
+catboost_info/
+h2o_logs/
+*.log
+logs/
+mlruns/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

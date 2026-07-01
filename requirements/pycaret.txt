@@ -1,0 +1,3 @@
+# PyCaret conflicts with newer scikit-learn releases; the base image pins
+# scikit-learn==1.3.2 which is compatible with this version.
+pycaret==3.3.2

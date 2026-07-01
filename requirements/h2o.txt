@@ -1,0 +1,3 @@
+# H2O requires Java 11+ on the host / in the image (the H2O Dockerfile stage
+# installs a headless JRE). Verify locally with: java -version
+h2o==3.46.0.5

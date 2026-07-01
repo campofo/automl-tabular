@@ -1,0 +1,10 @@
+# Base dependencies shared by every run (frameworks themselves are pinned
+# separately under requirements/ because they conflict when co-installed).
+pandas>=1.5,<2.2
+numpy>=1.23,<2.0
+scikit-learn==1.3.2
+psutil>=5.9
+openml>=0.14
+matplotlib>=3.7
+seaborn>=0.13
+jupyterlab>=4.0

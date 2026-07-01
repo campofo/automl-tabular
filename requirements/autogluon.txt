@@ -1,0 +1,3 @@
+# AutoGluon must live in its own environment/image — it conflicts with the
+# other frameworks when co-installed.
+autogluon.tabular[all]==1.1.1

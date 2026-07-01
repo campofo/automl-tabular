@@ -1,0 +1,43 @@
+# Unconstrained tier — represents a high-spec research machine.
+# RAM/CPU caps (16 GB / 8 cores) are enforced at runtime by run_all.sh via
+# `docker run --memory=16g --cpus=8`; the time budget is baked in here.
+#
+# One framework per image (they conflict when co-installed):
+#   docker build -f docker/Dockerfile.unconstrained --build-arg FRAMEWORK=flaml \
+#       -t automl-flaml:unconstrained .
+
+FROM python:3.10-slim
+
+ARG FRAMEWORK=flaml
+
+ENV TIER=unconstrained \
+    TIME_BUDGET=3600 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+# System deps: build tools for auto-sklearn (swig/gcc), Java for H2O.
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends build-essential curl && \
+    if [ "$FRAMEWORK" = "autosklearn" ]; then \
+        apt-get install -y --no-install-recommends swig; \
+    fi && \
+    if [ "$FRAMEWORK" = "h2o" ]; then \
+        apt-get install -y --no-install-recommends openjdk-17-jre-headless; \
+    fi && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY requirements.txt requirements/ ./requirements/
+RUN pip install -r requirements/requirements.txt && \
+    pip install -r requirements/${FRAMEWORK}.txt
+
+COPY src/ ./src/
+RUN mkdir -p results data
+
+ENV FRAMEWORK=${FRAMEWORK}
+
+# dataset is supplied at run time:
+#   docker run --memory=16g --cpus=8 -v $PWD/results:/app/results \
+#       -v $PWD/data:/app/data automl-flaml:unconstrained --dataset titanic
+ENTRYPOINT ["sh", "-c", "python -m src.benchmark_runner --framework $FRAMEWORK --tier $TIER \"$@\"", "--"]

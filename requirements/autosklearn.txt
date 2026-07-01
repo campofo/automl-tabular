@@ -1,0 +1,4 @@
+# auto-sklearn is Linux-only (use Docker or WSL2 elsewhere). It requires an
+# older scikit-learn than the base pin; installing this file will downgrade
+# scikit-learn inside the auto-sklearn image, which is expected.
+auto-sklearn==0.15.0

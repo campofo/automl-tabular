@@ -1,0 +1,6 @@
+# Lightest install of the five — use FLAML as the first smoke test of the
+# pipeline.
+flaml[automl]==2.1.2
+# FLAML 2.1.2 still passes `callbacks` to XGBoost's fit(), which xgboost 2.1
+# removed — keep xgboost below 2.1.
+xgboost<2.1
