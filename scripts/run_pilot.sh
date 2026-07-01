@@ -45,6 +45,13 @@ fi
 
 build_image() {
     local fw="$1"
+    # Reuse an existing image unless explicitly asked to rebuild: images are
+    # multi-GB and concurrent rebuilds can starve the shared egress proxy.
+    if [[ "${PILOT_REBUILD:-0}" != "1" ]] && \
+       docker image inspect "automl-pilot-${fw}" > /dev/null 2>&1; then
+        echo "==> image automl-pilot-${fw} exists; skipping build"
+        return 0
+    fi
     docker build \
         --network=host \
         -f docker/Dockerfile.pilot \

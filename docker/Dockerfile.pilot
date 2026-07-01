@@ -27,13 +27,19 @@ ENV JAVA_HOME=/opt/java \
     PATH=/opt/java/bin:$PATH
 
 COPY requirements.txt requirements/ ./requirements/
-RUN pip install -r requirements/requirements.txt && \
-    if [ "$FRAMEWORK" = "autosklearn" ]; then pip install swig; fi && \
+# auto-sklearn's dependency chain includes legacy setup.py builds that need
+# pkg_resources and Cython<3; PIP_CONSTRAINT reaches pip's isolated build
+# environments (harmless for the wheel-only frameworks).
+RUN printf 'setuptools<81\nCython<3\n' > /tmp/build-constraints.txt && \
+    pip install -r requirements/requirements.txt && \
+    if [ "$FRAMEWORK" = "autosklearn" ]; then \
+        pip install swig "setuptools<81" wheel "Cython<3"; \
+    fi && \
     if [ "$FRAMEWORK" = "h2o" ]; then \
         pip install jdk4py==17.0.9.2 && \
         ln -s "$(python -c 'import jdk4py; print(jdk4py.JAVA_HOME)')" /opt/java; \
     fi && \
-    pip install -r requirements/${FRAMEWORK}.txt
+    PIP_CONSTRAINT=/tmp/build-constraints.txt pip install -r requirements/${FRAMEWORK}.txt
 
 COPY src/ ./src/
 RUN mkdir -p results data
