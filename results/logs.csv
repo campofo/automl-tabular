@@ -14,3 +14,4 @@ flaml,bank_marketing,moderate,0.9125,0.9472,,120.4,382.4,347.3,completed
 flaml,adult,moderate,0.8643,0.9298,,121.0,542.6,369.8,completed
 flaml,credit_fraud,moderate,0.9990,0.9582,,121.5,769.7,222.4,completed
 flaml,titanic,unconstrained,0.8052,0.8335,,240.3,225.2,340.3,completed
+flaml,wine_quality,unconstrained,0.6921,,,243.8,1153.3,322.5,completed
