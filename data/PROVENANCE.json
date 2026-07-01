@@ -1,0 +1,103 @@
+{
+  "adult": {
+    "parsed_columns": 15,
+    "parsed_rows": 48839,
+    "retrieved_at": "2026-07-01T21:36:39+00:00",
+    "sources": [
+      {
+        "bytes": 3974304,
+        "sha256": "df25a4e32ed6f1bd4b3910d21a7bd661a09061eced7cb45555a519d9667cc87b",
+        "url": "https://storage.googleapis.com/cloud-samples-data/ml-engine/census/data/adult.data.csv"
+      },
+      {
+        "bytes": 1986465,
+        "sha256": "8d333150b660cd37ced023c2041b326c4ac66287a6c0336e4dd4b5ad7d39b8b9",
+        "url": "https://storage.googleapis.com/cloud-samples-data/ml-engine/census/data/adult.test.csv"
+      }
+    ],
+    "task_type": "binary"
+  },
+  "ames_housing": {
+    "parsed_columns": 80,
+    "parsed_rows": 2930,
+    "retrieved_at": "2026-07-01T21:28:44+00:00",
+    "sources": [
+      {
+        "bytes": 963738,
+        "sha256": "b156c5b06f6862fe98d950e7e1aae716b7b511fcdbd8180b9cecb9615ee21bdb",
+        "url": "https://raw.githubusercontent.com/dlsun/pods/master/data/AmesHousing.txt"
+      }
+    ],
+    "task_type": "regression"
+  },
+  "bank_marketing": {
+    "parsed_columns": 21,
+    "parsed_rows": 41188,
+    "retrieved_at": "2026-07-01T21:34:10+00:00",
+    "sources": [
+      {
+        "bytes": 4882918,
+        "sha256": "555f0e9a89a07616c0c123500b8be17cc97818057a7db9826860f77df8d33bbf",
+        "url": "https://raw.githubusercontent.com/madmashup/targeted-marketing-predictive-engine/master/banking.csv"
+      }
+    ],
+    "task_type": "binary"
+  },
+  "california_housing": {
+    "parsed_columns": 10,
+    "parsed_rows": 20640,
+    "retrieved_at": "2026-07-01T21:28:51+00:00",
+    "sources": [
+      {
+        "bytes": 1423529,
+        "sha256": "8a3727f4cf54ac1a327f69b1d5b4db54c5834ea81c6e4efc0d163300022a685e",
+        "url": "https://raw.githubusercontent.com/ageron/handson-ml2/master/datasets/housing/housing.csv"
+      }
+    ],
+    "task_type": "regression"
+  },
+  "credit_fraud": {
+    "parsed_columns": 31,
+    "parsed_rows": 284807,
+    "retrieved_at": "2026-07-01T21:36:01+00:00",
+    "sources": [
+      {
+        "bytes": 102634230,
+        "sha256": "33a178be65174943a07d1736acf5898f6c8e1fa80950dbbe598c17eda968ec59",
+        "url": "https://raw.githubusercontent.com/nsethi31/Kaggle-Data-Credit-Card-Fraud-Detection/master/creditcard.csv"
+      }
+    ],
+    "task_type": "binary"
+  },
+  "titanic": {
+    "parsed_columns": 9,
+    "parsed_rows": 891,
+    "retrieved_at": "2026-07-01T21:29:06+00:00",
+    "sources": [
+      {
+        "bytes": 60302,
+        "sha256": "4a437fde05fe5264e1701a7387ac6fb75393772ba38bb2c9c566405af5af4bd7",
+        "url": "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv"
+      }
+    ],
+    "task_type": "binary"
+  },
+  "wine_quality": {
+    "parsed_columns": 12,
+    "parsed_rows": 6497,
+    "retrieved_at": "2026-07-01T21:32:27+00:00",
+    "sources": [
+      {
+        "bytes": 85746,
+        "sha256": "4678927bac9ff54ac7431a10979a3a9b5ba014d20e14196b047073f2ceb75f4c",
+        "url": "https://raw.githubusercontent.com/plotly/datasets/master/winequality-red.csv"
+      },
+      {
+        "bytes": 264426,
+        "sha256": "76c3f809815c17c07212622f776311faeb31e87610d52c26d87d6e361b169836",
+        "url": "https://raw.githubusercontent.com/shrikant-temburwar/Wine-Quality-Dataset/master/winequality-white.csv"
+      }
+    ],
+    "task_type": "multiclass"
+  }
+}

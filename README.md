@@ -117,7 +117,11 @@ failure heatmap, and the framework recommendation matrix.
 
 - All random states seeded at **42**
 - Every run is independent and containerised
-- Datasets are fetched programmatically (OpenML / scikit-learn) and cached under `data/`
+- Datasets are fetched programmatically from verified public mirrors of the
+  original sources (GitHub / Google Cloud sample-data buckets) and cached
+  under `data/`; source URLs, SHA-256 checksums, and parsed shapes are
+  recorded in `data/PROVENANCE.json`
+- Validate the cached data any time with `python scripts/validate_datasets.py`
 
 ## Authors
 

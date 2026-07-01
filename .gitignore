@@ -1,5 +1,6 @@
-# Data cache (datasets are fetched programmatically)
-data/
+# Data cache (datasets are fetched programmatically; provenance is committed)
+data/*
+!data/PROVENANCE.json
 
 # Python
 __pycache__/
