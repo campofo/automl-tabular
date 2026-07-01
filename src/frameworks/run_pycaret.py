@@ -16,6 +16,12 @@ def run(X_train, y_train, X_test, y_test, task_type, time_budget, seed):
     train = X_train.copy()
     train["target"] = y_train.values
 
+    setup_kwargs = {}
+    if task_type != "regression":
+        # stratify PyCaret's internal split; otherwise rare classes can be
+        # absent from its training fold and predict() hits unseen labels
+        setup_kwargs["data_split_stratify"] = True
+        setup_kwargs["fold_strategy"] = "stratifiedkfold"
     setup(
         data=train,
         target="target",
@@ -23,6 +29,7 @@ def run(X_train, y_train, X_test, y_test, task_type, time_budget, seed):
         verbose=False,
         html=False,
         n_jobs=-1,
+        **setup_kwargs,
     )
     # compare_models takes its budget in minutes.
     best = compare_models(budget_time=time_budget / 60.0, verbose=False)
