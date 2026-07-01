@@ -1,0 +1,45 @@
+# Pilot/CI variant of the tier Dockerfiles for restricted-egress sandboxes
+# (used by scripts/run_pilot.sh; the paper campaign uses Dockerfile.<tier>).
+#
+# Differences from the tier Dockerfiles, all forced by egress policy:
+# - apt is unreachable, so the full python base image supplies gcc et al.
+# - swig comes from PyPI (auto-sklearn build requirement)
+# - Java 17 for H2O comes from the jdk4py PyPI wheel instead of apt
+# - the egress proxy's CA is trusted for build-time TLS
+# - the resource tier is injected at `docker run` time (-e TIER -e TIME_BUDGET
+#   --memory --cpus), so one image per framework serves all three tiers.
+
+FROM python:3.10-bookworm
+
+ARG FRAMEWORK=flaml
+
+ENV PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+# Trust the sandbox egress proxy's CA for all build-time TLS.
+COPY .pilot/ca-bundle.crt /usr/local/share/ca-certificates/egress-proxy.crt
+RUN update-ca-certificates
+
+WORKDIR /app
+
+# /opt/java exists only in the h2o image; a dangling PATH entry is harmless.
+ENV JAVA_HOME=/opt/java \
+    PATH=/opt/java/bin:$PATH
+
+COPY requirements.txt requirements/ ./requirements/
+RUN pip install -r requirements/requirements.txt && \
+    if [ "$FRAMEWORK" = "autosklearn" ]; then pip install swig; fi && \
+    if [ "$FRAMEWORK" = "h2o" ]; then \
+        pip install jdk4py==17.0.9.2 && \
+        ln -s "$(python -c 'import jdk4py; print(jdk4py.JAVA_HOME)')" /opt/java; \
+    fi && \
+    pip install -r requirements/${FRAMEWORK}.txt
+
+COPY src/ ./src/
+RUN mkdir -p results data
+
+ENV FRAMEWORK=${FRAMEWORK} \
+    TIER=constrained \
+    TIME_BUDGET=60
+
+ENTRYPOINT ["sh", "-c", "python -m src.benchmark_runner --framework $FRAMEWORK --tier $TIER \"$@\"", "--"]

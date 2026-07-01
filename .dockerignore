@@ -1,0 +1,11 @@
+# keep build contexts small: only src/, requirements*, and .pilot/ certs
+.git/
+data/
+results/
+figures/
+notebooks/
+paper/
+slides/
+__pycache__/
+*.pkl
+.pilot/jre.tar.gz
