@@ -15,3 +15,15 @@ flaml,adult,moderate,0.8643,0.9298,,121.0,542.6,369.8,completed
 flaml,credit_fraud,moderate,0.9990,0.9582,,121.5,769.7,222.4,completed
 flaml,titanic,unconstrained,0.8052,0.8335,,240.3,225.2,340.3,completed
 flaml,wine_quality,unconstrained,0.6921,,,243.8,1153.3,322.5,completed
+flaml,ames_housing,unconstrained,,,23678.5952,240.5,305.5,355.8,completed
+flaml,california_housing,unconstrained,,,45552.5526,245.4,494.1,382.8,completed
+flaml,bank_marketing,unconstrained,0.9125,0.9472,,240.8,456.3,290.5,completed
+flaml,adult,unconstrained,0.8758,0.9315,,241.0,426.8,357.2,completed
+flaml,credit_fraud,unconstrained,0.9995,0.9721,,241.0,797.5,332.5,completed
+pycaret,titanic,constrained,0.7695,0.7458,,15.2,757.5,44.2,completed
+pycaret,wine_quality,constrained,,,,43.3,903.6,9.0,failed: ValueError: y contains previously unseen labels: 7
+pycaret,ames_housing,constrained,,,26682.3435,71.3,820.2,22.6,completed
+pycaret,california_housing,constrained,,,50293.4457,69.2,1055.2,19.4,completed
+pycaret,bank_marketing,constrained,0.9128,0.9477,,76.1,1038.9,16.0,completed
+pycaret,adult,constrained,0.8602,0.9174,,69.1,1223.5,12.4,completed
+pycaret,credit_fraud,constrained,0.9992,0.9465,,167.9,1312.0,22.5,completed
