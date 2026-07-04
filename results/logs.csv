@@ -28,3 +28,4 @@ pycaret,adult,constrained,0.8602,0.9174,,69.1,1223.5,12.4,completed
 pycaret,credit_fraud,constrained,0.9992,0.9465,,167.9,1312.0,22.5,completed
 pycaret,titanic,moderate,0.7695,0.7458,,229.4,1206.2,2.1,completed
 pycaret,wine_quality,constrained,,,,71.6,910.1,11.1,failed: ValueError: y contains previously unseen labels: 7
+pycaret,wine_quality,moderate,,,,900.0,,,timeout
