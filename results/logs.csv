@@ -21,7 +21,6 @@ flaml,bank_marketing,unconstrained,0.9125,0.9472,,240.8,456.3,290.5,completed
 flaml,adult,unconstrained,0.8758,0.9315,,241.0,426.8,357.2,completed
 flaml,credit_fraud,unconstrained,0.9995,0.9721,,241.0,797.5,332.5,completed
 pycaret,titanic,constrained,0.7695,0.7458,,15.2,757.5,44.2,completed
-pycaret,wine_quality,constrained,,,,43.3,903.6,9.0,failed: ValueError: y contains previously unseen labels: 7
 pycaret,ames_housing,constrained,,,26682.3435,71.3,820.2,22.6,completed
 pycaret,california_housing,constrained,,,50293.4457,69.2,1055.2,19.4,completed
 pycaret,bank_marketing,constrained,0.9128,0.9477,,76.1,1038.9,16.0,completed
