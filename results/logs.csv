@@ -32,3 +32,4 @@ pycaret,wine_quality,moderate,,,,900.0,,,timeout
 pycaret,ames_housing,moderate,,,23685.9319,841.7,1394.4,2.4,completed
 pycaret,california_housing,moderate,,,48363.0390,759.9,1779.9,1.6,completed
 pycaret,bank_marketing,moderate,0.9128,0.9477,,822.4,1975.6,2.1,completed
+pycaret,adult,moderate,0.8759,0.9292,,877.5,2284.6,1.6,completed
