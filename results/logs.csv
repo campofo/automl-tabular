@@ -37,3 +37,4 @@ pycaret,credit_fraud,moderate,0.9992,0.9465,,163.9,2024.0,24.4,completed
 pycaret,titanic,unconstrained,0.7695,0.7458,,214.4,1205.2,2.5,completed
 pycaret,wine_quality,unconstrained,,,,900.0,,,timeout
 pycaret,ames_housing,unconstrained,,,,900.0,,,timeout
+pycaret,california_housing,unconstrained,,,48363.0390,890.6,1743.3,1.4,completed
