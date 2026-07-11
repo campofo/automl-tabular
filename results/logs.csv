@@ -55,3 +55,4 @@ h2o,california_housing,moderate,,,44714.8658,128.9,1996.6,1.5,completed
 h2o,bank_marketing,moderate,0.9154,0.9506,,129.8,2070.9,2.0,completed
 h2o,adult,moderate,0.8684,0.9317,,130.3,1718.9,1.8,completed
 h2o,credit_fraud,moderate,0.9995,0.9762,,137.7,1652.4,5.7,completed
+h2o,titanic,unconstrained,0.8068,0.8484,,247.7,1599.2,0.9,completed
