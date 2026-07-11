@@ -39,3 +39,4 @@ pycaret,wine_quality,unconstrained,,,,900.0,,,timeout
 pycaret,ames_housing,unconstrained,,,,900.0,,,timeout
 pycaret,california_housing,unconstrained,,,48363.0390,890.6,1743.3,1.4,completed
 pycaret,bank_marketing,unconstrained,,,,900.0,,,timeout
+pycaret,adult,unconstrained,0.8759,0.9292,,923.2,2213.9,2.2,completed
