@@ -41,3 +41,17 @@ pycaret,california_housing,unconstrained,,,48363.0390,890.6,1743.3,1.4,completed
 pycaret,bank_marketing,unconstrained,,,,900.0,,,timeout
 pycaret,adult,unconstrained,0.8759,0.9292,,923.2,2213.9,2.2,completed
 pycaret,credit_fraud,unconstrained,0.9995,0.9526,,792.4,2212.2,17.6,completed
+h2o,titanic,constrained,0.7994,0.8568,,90.2,1089.0,1.3,completed
+h2o,wine_quality,constrained,0.6099,,,69.2,1644.1,1.5,completed
+h2o,ames_housing,constrained,,,23036.2860,69.2,1421.3,1.5,completed
+h2o,california_housing,constrained,,,45345.7818,68.9,1329.5,2.8,completed
+h2o,bank_marketing,constrained,0.9134,0.9492,,72.0,1408.9,3.1,completed
+h2o,adult,constrained,0.8649,0.9304,,72.7,1178.7,1.8,completed
+h2o,credit_fraud,constrained,0.9993,0.9588,,83.7,1392.9,6.5,completed
+h2o,titanic,moderate,0.8095,0.8498,,128.1,1294.1,1.2,completed
+h2o,wine_quality,moderate,0.6720,,,127.7,1651.1,1.0,completed
+h2o,ames_housing,moderate,,,23084.3472,127.7,1764.3,0.9,completed
+h2o,california_housing,moderate,,,44714.8658,128.9,1996.6,1.5,completed
+h2o,bank_marketing,moderate,0.9154,0.9506,,129.8,2070.9,2.0,completed
+h2o,adult,moderate,0.8684,0.9317,,130.3,1718.9,1.8,completed
+h2o,credit_fraud,moderate,0.9995,0.9762,,137.7,1652.4,5.7,completed
