@@ -39,7 +39,6 @@ def run(X_train, y_train, X_test, y_test, task_type, time_budget, seed):
             train,
             time_limit=time_budget,
             presets="medium_quality",
-            random_seed=seed,
         )
 
         result = {"y_pred": predictor.predict(X_test).values}
