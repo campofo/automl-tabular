@@ -6,11 +6,18 @@ frameworks when co-installed.
 
 from __future__ import annotations
 
+import random
 import tempfile
 
 
 def run(X_train, y_train, X_test, y_test, task_type, time_budget, seed):
+    import numpy as np
     from autogluon.tabular import TabularPredictor
+
+    # TabularPredictor.fit() in autogluon 1.1.x has no seed argument;
+    # determinism comes from the global RNGs it samples at fit time.
+    random.seed(seed)
+    np.random.seed(seed)
 
     train = X_train.copy()
     train["target"] = y_train.values
