@@ -92,3 +92,8 @@ autogluon,bank_marketing,unconstrained,0.9133,0.9512,,92.6,1060.4,370.1,complete
 autogluon,adult,unconstrained,0.8731,0.9260,,106.2,1691.9,366.8,completed
 autogluon,credit_fraud,unconstrained,0.9990,0.9419,,241.1,1398.0,379.4,completed
 autosklearn,wine_quality,moderate,0.6473,,,129.6,1349.9,55.4,completed
+autosklearn,ames_housing,moderate,,,28779.7959,121.6,8699.0,13.6,completed
+autosklearn,california_housing,moderate,,,45748.1943,120.9,8897.4,41.1,completed
+autosklearn,bank_marketing,moderate,0.9141,0.9505,,124.7,8676.5,20.8,completed
+autosklearn,adult,moderate,0.8705,0.9281,,121.7,2165.9,12.6,completed
+autosklearn,credit_fraud,moderate,0.9992,0.9711,,119.1,8813.9,12.1,completed
