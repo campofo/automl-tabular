@@ -101,3 +101,4 @@ autosklearn,bank_marketing,unconstrained,0.9142,0.9503,,249.1,13514.4,22.4,compl
 autosklearn,adult,unconstrained,0.8724,0.9258,,242.9,2680.2,15.7,completed
 autosklearn,credit_fraud,unconstrained,0.9992,0.9711,,245.8,12672.7,10.8,completed
 autogluon,wine_quality,moderate,0.6603,,,114.5,1108.2,252.6,completed
+autogluon,ames_housing,moderate,,,24424.2499,94.6,1085.5,365.4,completed
