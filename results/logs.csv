@@ -100,3 +100,4 @@ autogluon,titanic,moderate,0.7840,0.8189,,118.8,724.8,176.6,completed
 autosklearn,bank_marketing,unconstrained,0.9142,0.9503,,249.1,13514.4,22.4,completed
 autosklearn,adult,unconstrained,0.8724,0.9258,,242.9,2680.2,15.7,completed
 autosklearn,credit_fraud,unconstrained,0.9992,0.9711,,245.8,12672.7,10.8,completed
+autogluon,wine_quality,moderate,0.6603,,,114.5,1108.2,252.6,completed
