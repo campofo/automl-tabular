@@ -27,7 +27,6 @@ pycaret,bank_marketing,constrained,0.9128,0.9477,,76.1,1038.9,16.0,completed
 pycaret,adult,constrained,0.8602,0.9174,,69.1,1223.5,12.4,completed
 pycaret,credit_fraud,constrained,0.9992,0.9465,,167.9,1312.0,22.5,completed
 pycaret,titanic,moderate,0.7695,0.7458,,229.4,1206.2,2.1,completed
-pycaret,wine_quality,constrained,,,,71.6,910.1,11.1,failed: ValueError: y contains previously unseen labels: 7
 pycaret,wine_quality,moderate,,,,900.0,,,timeout
 pycaret,ames_housing,moderate,,,23685.9319,841.7,1394.4,2.4,completed
 pycaret,california_housing,moderate,,,48363.0390,759.9,1779.9,1.6,completed
@@ -62,27 +61,6 @@ h2o,california_housing,unconstrained,,,44473.7457,248.7,1972.9,0.7,completed
 h2o,bank_marketing,unconstrained,0.9163,0.9509,,249.9,2263.4,1.2,completed
 h2o,adult,unconstrained,0.8713,0.9321,,249.8,2357.3,1.1,completed
 h2o,credit_fraud,unconstrained,0.9995,0.9760,,258.5,1760.3,2.0,completed
-autogluon,titanic,constrained,,,,5.3,170.5,4.9,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,wine_quality,constrained,,,,0.2,154.2,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,ames_housing,constrained,,,,0.2,158.2,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,california_housing,constrained,,,,0.2,155.1,504.6,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,bank_marketing,constrained,,,,0.2,170.5,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,adult,constrained,,,,0.2,165.3,408.2,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,credit_fraud,constrained,,,,0.2,230.9,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,titanic,moderate,,,,0.3,152.5,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,wine_quality,moderate,,,,0.2,154.8,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,ames_housing,moderate,,,,0.2,158.1,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,california_housing,moderate,,,,0.3,154.9,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,bank_marketing,moderate,,,,0.2,170.4,975.7,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,adult,moderate,,,,0.2,165.9,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,credit_fraud,moderate,,,,0.2,230.6,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,titanic,unconstrained,,,,0.2,152.4,1330.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,wine_quality,unconstrained,,,,0.2,154.7,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,ames_housing,unconstrained,,,,0.2,158.2,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,california_housing,unconstrained,,,,0.2,154.7,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,bank_marketing,unconstrained,,,,0.2,170.0,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,adult,unconstrained,,,,0.2,166.0,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
-autogluon,credit_fraud,unconstrained,,,,0.2,231.2,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
 autosklearn,titanic,constrained,0.7682,0.8058,,68.7,841.1,53.9,completed
 autosklearn,wine_quality,constrained,0.6371,,,60.4,1126.8,10.3,completed
 autosklearn,ames_housing,constrained,,,71953.7907,58.0,3778.4,7.9,completed
