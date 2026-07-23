@@ -82,3 +82,13 @@ autogluon,wine_quality,moderate,,,,0.2,154.6,0.0,failed: ValueError: Unknown `.f
 autogluon,ames_housing,moderate,,,,0.2,158.5,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
 autogluon,california_housing,moderate,,,,0.3,155.2,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
 autogluon,bank_marketing,moderate,,,,0.3,169.8,0.0,failed: ValueError: Unknown `.fit` keyword argument specified: 'random_seed' Valid kwargs: ['ag_args'; 'ag_args_ensemble'; 'ag_args_fit'; 'auto_stack'; 'calibrate'; 'ds_args'; 'excluded_model_types'; 'feature_generator';
+autogluon,adult,moderate,0.8745,0.9301,,123.2,1738.4,301.6,completed
+autogluon,credit_fraud,moderate,0.9990,0.9419,,119.9,1208.0,368.9,completed
+autogluon,titanic,unconstrained,0.7840,0.8189,,13.6,739.4,212.0,completed
+autogluon,wine_quality,unconstrained,0.6603,,,62.8,1152.8,352.5,completed
+autogluon,ames_housing,unconstrained,,,24424.2499,89.8,1124.0,361.8,completed
+autogluon,california_housing,unconstrained,,,54829.3063,162.5,1221.9,338.1,completed
+autogluon,bank_marketing,unconstrained,0.9133,0.9512,,92.6,1060.4,370.1,completed
+autogluon,adult,unconstrained,0.8731,0.9260,,106.2,1691.9,366.8,completed
+autogluon,credit_fraud,unconstrained,0.9990,0.9419,,241.1,1398.0,379.4,completed
+autosklearn,wine_quality,moderate,0.6473,,,129.6,1349.9,55.4,completed
