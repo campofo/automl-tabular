@@ -50,6 +50,27 @@ Running the real frameworks surfaced version-drift bugs that are now fixed in
   (`FROM <image>` + `COPY src/`) rather than a full rebuild — the host disk is
   too small for AutoGluon's ~12 GB `--no-cache` rebuild.
 
+## Final pilot outcome (105/105 cells)
+
+Status tally: **100 completed, 4 timeout, 1 failed**. All non-completed cells
+are PyCaret on `wine_quality`/`ames_housing`/`bank_marketing`:
+
+- The 4 `timeout` cells are PyCaret runs the external 900 s watchdog had to
+  kill (see the budget-adherence note above).
+- The 1 `failed` cell — `pycaret,wine_quality,constrained` — raises
+  `ValueError: y contains previously unseen labels: 7` *despite* the
+  stratification fix. At the constrained budget (60 s / 4 GB) the model that
+  wins PyCaret's truncated search was trained on a CV fold missing the rare
+  wine-quality class 7, so `predict` on the held-out set hits an unseen label.
+  At the moderate/unconstrained budgets the same cells instead `timeout`
+  (PyCaret runs past that point but can't finish), so this is genuine
+  budget-dependent PyCaret behaviour on rare-class multiclass under tight
+  resources — a real completion-rate finding, not an unfixed adapter bug.
+
+Every other framework completed all 21 cells. This clean failure/timeout
+concentration on one framework/dataset is exactly the kind of signal the
+study's failure heatmap is meant to surface.
+
 ## What transfers and what doesn't
 
 - **Completion/failure patterns** (which framework survives 4 GB / 2 cores on

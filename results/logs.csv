@@ -69,7 +69,6 @@ autosklearn,bank_marketing,constrained,0.8917,0.9132,,58.1,4525.2,10.1,completed
 autosklearn,adult,constrained,0.7892,0.8789,,57.2,1361.3,10.7,completed
 autosklearn,credit_fraud,constrained,0.9974,0.5,,58.0,2510.2,9.8,completed
 autosklearn,titanic,moderate,0.7779,0.8311,,122.6,1109.0,92.3,completed
-pycaret,wine_quality,constrained,,,,58.7,887.9,9.7,failed: ValueError: y contains previously unseen labels: 7
 autogluon,adult,moderate,0.8745,0.9301,,123.2,1738.4,301.6,completed
 autogluon,credit_fraud,moderate,0.999,0.9419,,119.9,1208.0,368.9,completed
 autogluon,titanic,unconstrained,0.784,0.8189,,13.6,739.4,212.0,completed
@@ -104,3 +103,4 @@ autogluon,wine_quality,moderate,0.6603,,,114.5,1108.2,252.6,completed
 autogluon,ames_housing,moderate,,,24424.2499,94.6,1085.5,365.4,completed
 autogluon,california_housing,moderate,,,59909.1146,122.0,1767.6,303.5,completed
 autogluon,bank_marketing,moderate,0.9133,0.9512,,92.0,1074.3,365.6,completed
+pycaret,wine_quality,constrained,,,,57.5,874.2,8.8,failed: ValueError: y contains previously unseen labels: 7
