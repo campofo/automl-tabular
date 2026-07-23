@@ -87,3 +87,12 @@ autosklearn,adult,moderate,0.8705,0.9281,,121.7,2165.9,12.6,completed
 autosklearn,credit_fraud,moderate,0.9992,0.9711,,119.1,8813.9,12.1,completed
 autosklearn,titanic,unconstrained,0.7977,0.8353,,240.0,1651.0,96.4,completed
 autosklearn,wine_quality,unconstrained,0.6497,,,247.7,1472.9,78.9,completed
+autogluon,titanic,constrained,0.7804,0.8310,,61.6,524.0,161.3,completed
+autosklearn,ames_housing,unconstrained,,,28779.7959,246.9,13838.1,16.9,completed
+autogluon,wine_quality,constrained,0.6397,,,64.9,569.0,175.2,completed
+autogluon,ames_housing,constrained,,,23960.2081,61.2,528.5,172.4,completed
+autogluon,california_housing,constrained,,,55866.8226,61.2,526.6,170.9,completed
+autogluon,bank_marketing,constrained,0.8902,0.9460,,61.5,549.4,161.5,completed
+autosklearn,california_housing,unconstrained,,,45711.5187,266.5,14942.8,47.3,completed
+autogluon,adult,constrained,0.8748,0.9289,,87.0,1454.0,174.9,completed
+autogluon,credit_fraud,constrained,0.9990,0.9419,,61.9,1234.4,163.4,completed
