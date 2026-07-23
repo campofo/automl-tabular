@@ -18,6 +18,10 @@ ALL_TIERS=(constrained moderate unconstrained)
 # --memory / --cpus per tier
 declare -A TIER_MEM=([constrained]=4g [moderate]=8g [unconstrained]=16g)
 declare -A TIER_CPUS=([constrained]=2 [moderate]=4 [unconstrained]=8)
+# Outer wall-clock kill per run (budget + generous grace), so a framework that
+# ignores its own time budget can never stall the whole campaign. The runner's
+# own hard-kill watchdog should fire first; this is the last line of defence.
+declare -A TIER_HARDLIMIT=([constrained]=600 [moderate]=1500 [unconstrained]=5400)
 
 TIERS=("${ALL_TIERS[@]}")
 if [[ $# -ge 1 ]]; then
@@ -45,15 +49,20 @@ for tier in "${TIERS[@]}"; do
 
         for dataset in "${DATASETS[@]}"; do
             echo "==> Running ${framework} / ${dataset} / ${tier}"
-            docker run --rm \
-                --memory="${TIER_MEM[$tier]}" \
-                --memory-swap="${TIER_MEM[$tier]}" \
-                --cpus="${TIER_CPUS[$tier]}" \
-                -v "$(pwd)/results:/app/results" \
-                -v "$(pwd)/data:/app/data" \
-                "${image}" \
-                --dataset "${dataset}" \
-                || echo "!! ${framework}/${dataset}/${tier} did not complete (logged)" >&2
+            cname="run_${framework}_${dataset}_${tier}"
+            # `timeout --kill-after` guarantees the container is torn down even
+            # if it wedges; --name lets us force-remove it if the kill lands.
+            timeout --kill-after=60 "${TIER_HARDLIMIT[$tier]}" \
+                docker run --rm --name "${cname}" \
+                    --memory="${TIER_MEM[$tier]}" \
+                    --memory-swap="${TIER_MEM[$tier]}" \
+                    --cpus="${TIER_CPUS[$tier]}" \
+                    -v "$(pwd)/results:/app/results" \
+                    -v "$(pwd)/data:/app/data" \
+                    "${image}" \
+                    --dataset "${dataset}" \
+                || { echo "!! ${framework}/${dataset}/${tier} did not complete (logged)" >&2
+                     docker rm -f "${cname}" >/dev/null 2>&1 || true; }
         done
     done
 done

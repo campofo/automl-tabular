@@ -14,6 +14,7 @@ import argparse
 import os
 import signal
 import sys
+import threading
 import traceback
 
 import numpy as np
@@ -38,6 +39,27 @@ class RunTimeout(Exception):
 
 def _alarm_handler(signum, frame):
     raise RunTimeout
+
+
+def _start_hard_kill_watchdog(row_stub: dict, deadline_sec: int):
+    """Force the process to die if the run hangs past ``deadline_sec``.
+
+    SIGALRM cannot interrupt native/joblib sections (e.g. PyCaret's
+    ``compare_models``), so a run can sail past the soft alarm. This daemon
+    timer logs a ``timeout`` row and hard-exits, guaranteeing the container
+    terminates instead of hanging until an external watchdog kills it.
+    """
+    def _kill():
+        append_log_row({**row_stub, "status": "timeout",
+                        "time_sec": float(deadline_sec)})
+        print(f"[benchmark] hard-kill watchdog fired after {deadline_sec}s; "
+              "forcing exit", flush=True)
+        os._exit(2)
+
+    timer = threading.Timer(deadline_sec, _kill)
+    timer.daemon = True
+    timer.start()
+    return timer
 
 
 def run_experiment(framework: str, dataset: str, tier: str, time_budget: int) -> dict:
@@ -65,6 +87,9 @@ def run_experiment(framework: str, dataset: str, tier: str, time_budget: int) ->
     hard_limit = int(time_budget * GRACE_FACTOR) + GRACE_MIN_SEC
     signal.signal(signal.SIGALRM, _alarm_handler)
     signal.alarm(hard_limit)
+    # Backstop for native hangs the alarm can't interrupt: logs a timeout row
+    # and hard-exits a bit after the soft alarm should have fired.
+    kill_watchdog = _start_hard_kill_watchdog(dict(row), hard_limit + 60)
 
     profiler = ResourceProfiler()
     timer = Timer()
@@ -92,6 +117,7 @@ def run_experiment(framework: str, dataset: str, tier: str, time_budget: int) ->
         row["status"] = f"failed: {type(exc).__name__}: {msg}"
     finally:
         signal.alarm(0)
+        kill_watchdog.cancel()  # run finished (or raised) in time; disarm backstop
         # Timer/profiler exit even when the run raises, so partial resource
         # usage is still logged for timeout/failure rows.
         row["time_sec"] = getattr(timer, "elapsed", None)
