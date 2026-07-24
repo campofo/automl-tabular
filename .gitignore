@@ -25,3 +25,4 @@ mlruns/
 .idea/
 .vscode/
 .pilot/
+node_modules/
